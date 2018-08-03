@@ -4,7 +4,8 @@ import './index.css';
 import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 
-import HappyFind from './components/HappyFind';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 import Home from './components/Home';
 

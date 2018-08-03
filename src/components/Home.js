@@ -8,6 +8,7 @@ class Home extends Component {
     return(
       <div>
       <SearchForm />
+      <SearchResult />
       </div>
     );
   }
@@ -15,7 +16,6 @@ class Home extends Component {
 class SearchForm extends Component {
   render() {
     return(
-      
       <form>
         <h2>Search</h2>
       <input name="search" type="text" placeholder="Postcode or Suburb" required autoFocus />
@@ -24,4 +24,18 @@ class SearchForm extends Component {
     );
   }
 }
+
+class SearchResult extends Component {
+  render() {
+    return(
+      <div>
+      <h2>SearchResult coming</h2>
+      </div>
+
+    );
+  }
+}
+
+
+
 export default Home;
