@@ -6,22 +6,29 @@ import {
   Marker,
 } from "react-google-maps";
 
-function makeMarker(coords) {
-  return (
-    <Marker position={coords} />
-  )
-}
-
-const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-  <GoogleMap
-    defaultZoom={8}
-    defaultCenter={props.pos}
-  >
-
-    {props.markers.map( (ll) => makeMarker(ll) )}
-  </GoogleMap>
-));
-
+/* MapsResults requires at least one Prop to work properly.
+ *  REQUIRED:
+ *    // pos is ab object for the centre of the map. 
+ *    // Get this from the MapsUtils geoencode
+ *    pos = { lat: 35.123, lng: -128.123 }
+ *
+ *  OPTIONAL:
+ *    // markers is an array of lat/lng objects.
+ *    markers = [{ lat: 35.123, lng: -128.123 }, { lat: 35.123, lng: -128.123 }]
+ * 
+ *  EXAMPLE:
+ *    render() {
+ *      const centre = { lat: 35.123, lng: -128.123 }
+ *      const supplier_locs = [
+ *        { lat: 35.123, lng: -128.123 }, 
+ *        { lat: 35.123, lng: -128.123 }
+ *      ]
+ * 
+ *      return (
+ *        <MapResults pos={ centre } markers={ supplier_locs } />
+ *      )
+ *    }
+*/
 class MapResults extends Component {
   render() {
     return (
@@ -36,5 +43,21 @@ class MapResults extends Component {
     )
   }
 }
+
+function makeMarker(coords) {
+  return (
+    <Marker position={coords} />
+  )
+}
+
+const MapWithAMarker = withScriptjs(withGoogleMap(props =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={props.pos}
+  >
+
+    {props.markers.map((ll) => makeMarker(ll))}
+  </GoogleMap>
+));
 
 export default MapResults
