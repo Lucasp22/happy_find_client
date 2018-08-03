@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import MapsAPI from '../utils/MapsUtil';
+import MapResults from './MapResults'
 
+const API_KEY = "AIzaSyDiQ5gOiu9480aI_pxyj7EJhJl-F3LVspM";
+const maps = new MapsAPI(API_KEY);
 
 class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loc: { lat: 0, lng: 0 }
+    }
+
+
+    maps.geocode('sydney', (results) => { 
+      this.setState({ 
+        loc: maps.getLatLng(results)
+      })
+    });
+  }
+
+
   render() {
     return(
       <div>
       <SearchForm />
+      <MapResults pos={this.state.loc} />
       <SearchResult />
       </div>
     );
   }
 };
+
+
 class SearchForm extends Component {
   render() {
     return(

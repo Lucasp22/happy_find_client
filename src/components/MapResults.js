@@ -39,6 +39,7 @@ class MapResults extends Component {
         mapElement={<div style={{ height: `100%` }} />}
         pos={ this.props.pos || {} }
         markers={ this.props.markers || [] }
+        onCenterChanged={ () => console.log('center changed') }
       />
     )
   }
@@ -53,7 +54,7 @@ function makeMarker(coords) {
 const MapWithAMarker = withScriptjs(withGoogleMap(props =>
   <GoogleMap
     defaultZoom={8}
-    defaultCenter={props.pos}
+    center={props.pos}
   >
 
     {props.markers.map((ll) => makeMarker(ll))}
