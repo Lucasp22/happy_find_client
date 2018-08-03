@@ -10,7 +10,7 @@ const Routes = (
     <div>
       <Route path="/*" component={NavBar} />
       <Switch>
-        <Route path = "/home" component={Home} />
+        <Route path = "/" component={Home} />
       </Switch>
       <Route path="/*" component={Footer} />
     </div>
