@@ -7,6 +7,8 @@ import MapResults from './MapResults'
 const API_KEY = "AIzaSyDiQ5gOiu9480aI_pxyj7EJhJl-F3LVspM";
 const maps = new MapsAPI(API_KEY);
 
+const SERVER_URL = 'https://happy-find.herokuapp.com/skill_categories.js';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +40,7 @@ class Home extends Component {
     this.setState( {
       suppliers: happyResults
     });
+
   }
 
 
