@@ -7,6 +7,8 @@ import MapResults from './MapResults'
 const API_KEY = "AIzaSyDiQ5gOiu9480aI_pxyj7EJhJl-F3LVspM";
 const maps = new MapsAPI(API_KEY);
 
+const SERVER_URL = 'https://happy-find.herokuapp.com/skill_categories.js';
+
 class Home extends Component {
   constructor() {
     super();
@@ -15,11 +17,12 @@ class Home extends Component {
     }
 
 
-    maps.geocode('sydney', (results) => { 
-      this.setState({ 
+    maps.geocode('sydney', (results) => {
+      this.setState({
         loc: maps.getLatLng(results)
       })
     });
+
   }
 
 
@@ -28,6 +31,7 @@ class Home extends Component {
       <div>
       <SearchForm />
       <MapResults pos={this.state.loc} />
+
       <SearchResult />
       </div>
     );
@@ -52,6 +56,7 @@ class SearchResult extends Component {
     return(
       <div>
       <h2>SearchResult coming</h2>
+
       </div>
 
     );
