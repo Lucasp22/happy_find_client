@@ -47,7 +47,7 @@ class MapResults extends Component {
 
 function makeMarker(coords) {
   return (
-    <Marker position={coords} />
+    <Marker position={coords}/>
   )
 }
 
