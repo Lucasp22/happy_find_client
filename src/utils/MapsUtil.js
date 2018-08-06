@@ -34,7 +34,7 @@ class MapsAPI {
   geocode(string, success, failure) {
     if (this.ready) {
       console.log("calling geocoder");
-      this.geocoder.geocode({ 'address': string }, function (results, status) {
+      this.geocoder.geocode({ 'address': string, region: 'AU' }, function (results, status) {
         if (status === 'OK') {
           if (success && success.call) success.call(this, results);
         } else {

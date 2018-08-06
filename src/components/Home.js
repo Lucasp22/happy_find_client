@@ -11,10 +11,10 @@ const SERVER_URL = 'https://happy-find.herokuapp.com/';
 class Home extends Component {
   constructor(props) {
     super(props);
-
     // set state
     this.state = {
-      loc: { lat: 0, lng: 0 },
+      loc: { lat: -25.275, lng: 133.775 },
+      zoom: 4,
       suppliers: [],
       categories: []
     }
@@ -33,7 +33,7 @@ class Home extends Component {
     // searchData should be an object that holds 
     // { loc: { lat: n, lng: n }, category: '' }
     // set location from data first so user gets feedback early
-    this.setState({ loc: searchData.loc })
+    this.setState({ loc: searchData.loc, zoom: 12 })
 
     // get search results TODO: update to send data when search API Ready
     axios.post(SERVER_URL + 'search_suppliers', {}).then((r) => {
@@ -53,7 +53,8 @@ class Home extends Component {
           pos={ this.state.loc }  // centre of map
           markers={this.state.suppliers.map((s) => { 
             return { lat: s.latitude, lng: s.longitude }
-          })} // supplier pins
+          })}
+          zoom={this.state.zoom} // supplier pins
         />
         <SearchResult suppliers={ this.state.suppliers }/>
       </main>
