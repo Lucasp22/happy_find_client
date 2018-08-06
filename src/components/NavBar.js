@@ -6,7 +6,7 @@ class NavBar extends Component {
   render() {
     return(
       <header>
-        <h1><i class="material-icons larger">sentiment_very_satisfied</i>Happy Find</h1>
+        <h1><i className="material-icons larger">sentiment_very_satisfied</i>Happy Find</h1>
         <nav>
           <Link to={`/home`} style = {{padding: 15}}>Home</Link>
         </nav>
