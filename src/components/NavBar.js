@@ -5,9 +5,12 @@ import axios from 'axios';
 class NavBar extends Component {
   render() {
     return(
-      <div style={{textAlign: "right"}}>
-        <Link to={`/home`} style = {{padding: 15}}>Home</Link>
-      </div>
+      <header>
+        <h1><i class="material-icons larger">sentiment_very_satisfied</i>Happy Find</h1>
+        <nav>
+          <Link to={`/home`} style = {{padding: 15}}>Home</Link>
+        </nav>
+      </header>
     );
   }
 }

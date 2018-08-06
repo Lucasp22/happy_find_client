@@ -1,5 +1,53 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: gainsboro;
+  box-sizing: border-box;
 }
+
+
+/* Style root Div */
+#root > div {
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 960px;
+  min-width: 576px;
+  background-color: white;
+  min-height: 100vh;
+  margin: 0 auto;
+  box-shadow: 0 0 1em rgba(0,0,0,0.3);
+}
+
+header, main, footer {
+  padding: 1.5rem;
+}
+
+header {
+  display: flex;
+  background-color: goldenrod;
+}
+
+header h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.25em rgba(0,0,0,0.25);
+}
+
+header .material-icons.larger {
+  font-size: 1.25em;
+  vertical-align: text-bottom;
+}
+
+header nav {
+  margin-left: auto;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+}
+

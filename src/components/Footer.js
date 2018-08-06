@@ -5,9 +5,9 @@ import axios from 'axios';
 class Footer extends Component {
   render() {
     return(
-    <div>
+    <footer>
     <h4>©2018 Happy Find by GA </h4>
-    </div>
+    </footer>
     );
   }
 }
