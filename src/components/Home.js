@@ -7,7 +7,7 @@ import MapResults from './MapResults'
 const API_KEY = "AIzaSyDiQ5gOiu9480aI_pxyj7EJhJl-F3LVspM";
 const maps = new MapsAPI(API_KEY);
 
-const SERVER_URL = 'https://happy-find.herokuapp.com/skill_categories.js';
+const SERVER_URL = 'https://happy-find.herokuapp.com/';
 
 class Home extends Component {
   constructor(props) {
@@ -16,11 +16,18 @@ class Home extends Component {
     // set state
     this.state = {
       loc: { lat: 0, lng: 0 },
-      suppliers: []
+      suppliers: [],
+      categories: []
     }
 
     // bind methods
     this.searchAPI = this.searchAPI.bind(this);
+
+
+    // get categories
+    axios.get(SERVER_URL + 'skill_categories').then((r) => {
+      this.setState( {categories: r.data.map( c => c.name ) } );
+    });
   }
 
   searchAPI(searchData) {
@@ -30,13 +37,19 @@ class Home extends Component {
     // set location from data first so user gets feedback early
     this.setState({ loc: searchData.loc })
 
-    // TODO: Call Rails API to get actual results.
+    // update and uncomment when API ready
+    // // get search results
+    // axios.get(SERVER_URL + 'search').then((r) => {
+    //   this.setState({ suppliers: r.data });
+    // });
+
+    // TODO: Delete me when API ready
     const happyResults = [{
       name: "Supplier 1",
       loc: { lat: -33, lng: 151 }
     }]
 
-    // update state with results TODO: this will be in a callback function for API
+    // TODO: Delete me when API ready
     this.setState( {
       suppliers: happyResults
     });
@@ -46,11 +59,17 @@ class Home extends Component {
 
   render() {
     return(
-      <div>
-        <SearchForm onSubmit={ this.searchAPI }/>
-        <MapResults pos={ this.state.loc } markers={ this.state.suppliers.map( (s) => s.loc ) } />
+      <main>
+        <SearchForm 
+          onSubmit={ this.searchAPI } 
+          categories = { this.state.categories }
+        />
+        <MapResults 
+          pos={ this.state.loc }  // centre of map
+          markers={ this.state.suppliers.map( (s) => s.loc ) } // supplier pins
+        />
         <SearchResult suppliers={ this.state.suppliers }/>
-      </div>
+      </main>
     );
   }
 };
@@ -66,21 +85,22 @@ class SearchForm extends Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-
-    // get details from form
-    const searchTerm = this.suburb.value
-
-    // get the lat lng from api
-    maps.geocode(searchTerm, (results) => {
+    // get the lat lng from api then submit to home component
+      maps.geocode(this.suburb.value, (results) => {
+      // create params object
       const searchParams = {
         loc: maps.getLatLng(results),
-        category: '' // get category from search later
+        category: this.category.value
       }
+      // call onSubmit function
       this.props.onSubmit(searchParams);
     })
+  }
 
-    // call Home's search method.
-    
+  generateOptions(options) {
+    const opts = options.map((o) => <option value={o}>{o}</option>)
+    opts.unshift(<option>Select a Category</option>)
+    return opts;
   }
 
   render() {
@@ -88,6 +108,9 @@ class SearchForm extends Component {
       <form onSubmit={ this._handleSubmit } >
         <h2>Search</h2>
         <input name="search" type="text" placeholder="Postcode or Suburb" required autoFocus ref={ node => { this.suburb = node } }/>
+        <select name="category" ref={ node => { this.category = node }}>
+          { this.generateOptions(this.props.categories) }
+        </select>
         <input  name="submit" type="submit" value="Submit" />
       </form>
     );
