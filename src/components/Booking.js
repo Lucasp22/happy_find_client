@@ -6,6 +6,13 @@ const SERVER_URL = 'https://happy-find.herokuapp.com/orders.json';
 
 
 class Booking extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = props.history.location.state;
+  }
+
+
   render() {
     return(
       <div>
