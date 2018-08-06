@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import React, {Component} from 'react';
+import {Elements, StripeProvider} from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 
 class Booking extends Component {
   render() {
@@ -9,6 +13,7 @@ class Booking extends Component {
       <h1>Booking</h1>
       <SupplierDetails />
       <BookingForm />
+      <App />
 
       </div>
     )
@@ -21,14 +26,11 @@ class SupplierDetails extends Component {
     return(
         <div>
           <h1>SupplierDetails</h1>
-
     <table>
       <tr>
-
                 <th><h4>Name</h4></th>
                   <th><h4>Skill</h4></th>
                     <th><h4>Stars</h4></th>
-
       </tr>
                 <tr>
                   <th><h4>Lucas Padua</h4></th>
@@ -38,7 +40,6 @@ class SupplierDetails extends Component {
     </table>
   </div>
     )
-
   }//end of Render
 }// end of SupplierDetails
 
@@ -65,6 +66,24 @@ class BookingForm extends Component {
     )
   }//end of render
 }//end of booking
+
+
+
+class App extends Component {
+  render() {
+    return (
+      <StripeProvider apiKey="pk_test_LwL4RUtinpP3PXzYirX2jNfR">
+        <div className="example">
+          <h1>Payment</h1>
+          <Elements>
+            <CheckoutForm />
+          </Elements>
+        </div>
+      </StripeProvider>
+    );
+  }
+}
+
 
 
 export default Booking;
