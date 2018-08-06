@@ -51,3 +51,13 @@ footer {
   text-align: center;
 }
 
+form {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+form input, form select {
+  display: inline-block;
+  font-size: 1.25em;
+  border: 1px solid lightgrey;
+}
