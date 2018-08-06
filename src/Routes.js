@@ -6,6 +6,8 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Booking from './components/Booking';
 import CheckoutForm from './components/CheckoutForm';
+import  PaySummary from './components/PaySummary';
+
 
 
 
@@ -14,13 +16,12 @@ const Routes = (
     <div>
       <Route exact path="/*" component={NavBar} />
       <Switch>
+        <Route path = "/paysummary" component={PaySummary} />
 
         <Route path = "/booking" component={Booking} />
           <Route path = "/checkoutform" component={CheckoutForm} />
-
-        <Route path = "/" component={Home} />
-
-
+          
+      <Route path = "/" component={Home} />
       </Switch>
       <Route exact path="/*" component={Footer} />
 
