@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import MapsAPI from '../utils/MapsUtil';
 import MapResults from './MapResults'
@@ -33,27 +32,13 @@ class Home extends Component {
   searchAPI(searchData) {
     // searchData should be an object that holds 
     // { loc: { lat: n, lng: n }, category: '' }
-
     // set location from data first so user gets feedback early
     this.setState({ loc: searchData.loc })
 
-    // update and uncomment when API ready
-    // // get search results
-    // axios.get(SERVER_URL + 'search').then((r) => {
-    //   this.setState({ suppliers: r.data });
-    // });
-
-    // TODO: Delete me when API ready
-    const happyResults = [{
-      name: "Supplier 1",
-      loc: { lat: -33, lng: 151 }
-    }]
-
-    // TODO: Delete me when API ready
-    this.setState( {
-      suppliers: happyResults
+    // get search results TODO: update to send data when search API Ready
+    axios.post(SERVER_URL + 'search_suppliers', {}).then((r) => {
+      this.setState({ suppliers: r.data });
     });
-
   }
 
 
@@ -66,7 +51,9 @@ class Home extends Component {
         />
         <MapResults 
           pos={ this.state.loc }  // centre of map
-          markers={ this.state.suppliers.map( (s) => s.loc ) } // supplier pins
+          markers={this.state.suppliers.map((s) => { 
+            return { lat: s.latitude, lng: s.longitude }
+          })} // supplier pins
         />
         <SearchResult suppliers={ this.state.suppliers }/>
       </main>
@@ -98,8 +85,8 @@ class SearchForm extends Component {
   }
 
   generateOptions(options) {
-    const opts = options.map((o) => <option value={o}>{o}</option>)
-    opts.unshift(<option>Select a Category</option>)
+    const opts = options.map((o,i) => <option key={ i } value={o}>{o}</option>)
+    opts.unshift(<option key="-1">Select a Category</option>)
     return opts;
   }
 
@@ -121,7 +108,7 @@ class SearchResult extends Component {
   render() {
     // set up suppliers array
     let suppliers = this.props.suppliers.map(
-          (s) => (<div><h3>{s.name}</h3></div>)
+          (s) => (<div key={s.id}><h3>{s.name}</h3></div>)
         )
 
     // return the xHTML to render

@@ -45,9 +45,9 @@ class MapResults extends Component {
   }
 }
 
-function makeMarker(coords) {
+function makeMarker(coords,i) {
   return (
-    <Marker position={coords}/>
+    <Marker key={i} position={coords}/>
   )
 }
 
@@ -57,7 +57,7 @@ const MapWithAMarker = withScriptjs(withGoogleMap(props =>
     center={props.pos}
   >
 
-    {props.markers.map((ll) => makeMarker(ll))}
+    {props.markers.map((ll,i) => makeMarker(ll,i))}
   </GoogleMap>
 ));
 
