@@ -7,15 +7,43 @@ class Booking extends Component {
     return(
       <div>
       <h1>Booking</h1>
+      <SupplierDetails />
       <BookingForm />
+
       </div>
     )
   }// end of reder
 }//end of class Booking
 
 
-class BookingForm extends Component {
+class SupplierDetails extends Component {
+  render() {
+    return(
+        <div>
+          <h1>SupplierDetails</h1>
 
+    <table>
+      <tr>
+
+                <th><h4>Name</h4></th>
+                  <th><h4>Skill</h4></th>
+                    <th><h4>Stars</h4></th>
+
+      </tr>
+                <tr>
+                  <th><h4>Lucas Padua</h4></th>
+                  <th>  <h4>WebDev</h4></th>
+                    <th>  <h4>* * *</h4></th>
+                </tr>
+    </table>
+  </div>
+    )
+
+  }//end of Render
+}// end of SupplierDetails
+
+
+class BookingForm extends Component {
 
   render() {
     return(
