@@ -25,7 +25,7 @@ class Home extends Component {
 
     // get categories
     axios.get(SERVER_URL + 'skill_categories').then((r) => {
-      this.setState( {categories: r.data.map( c => c.name ) } );
+      this.setState( {categories: r.data} );
     });
   }
 
@@ -34,10 +34,19 @@ class Home extends Component {
     // { loc: { lat: n, lng: n }, category: '' }
     // set location from data first so user gets feedback early
     this.setState({ loc: searchData.loc, zoom: 12 })
-
+    console.log(searchData);
+    const data = {
+      "geocode": {
+        "latitude": searchData.loc.lat,
+        "longitude": searchData.loc.lng
+      },
+      "radius": 10,
+      "skill_category": searchData.category
+    }
     // get search results TODO: update to send data when search API Ready
-    axios.post(SERVER_URL + 'search_suppliers', {}).then((r) => {
+    axios.post(SERVER_URL + 'search_suppliers', data).then((r) => {
       this.setState({ suppliers: r.data });
+      console.log(r);
     });
   }
 
@@ -86,8 +95,8 @@ class SearchForm extends Component {
   }
 
   generateOptions(options) {
-    const opts = options.map((o,i) => <option key={ i } value={o}>{o}</option>)
-    opts.unshift(<option key="-1">Select a Category</option>)
+    const opts = options.map((o,i) => <option key={ i } value={o.id}>{o.name}</option>)
+    opts.unshift(<option key="-1" value="">Select a Category</option>)
     return opts;
   }
 
@@ -96,7 +105,7 @@ class SearchForm extends Component {
       <form onSubmit={ this._handleSubmit } >
         <h2>Search</h2>
         <input name="search" type="text" placeholder="Postcode or Suburb" required autoFocus ref={ node => { this.suburb = node } }/>
-        <select name="category" ref={ node => { this.category = node }}>
+        <select name="category" ref={ node => { this.category = node }} required>
           { this.generateOptions(this.props.categories) }
         </select>
         <input  name="submit" type="submit" value="Submit" />
