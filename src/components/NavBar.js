@@ -8,6 +8,9 @@ class NavBar extends Component {
         <h1><i className="material-icons larger">sentiment_very_satisfied</i>Happy Find</h1>
         <nav>
           <Link to={`/home`} style = {{padding: 15}}>Home</Link>
+          <Link to={`/signup`} style = {{padding:15}}>Sign Up</Link>
+          <Link to={`/login`} style = {{padding:15}}>Log in</Link>
+
         </nav>
       </header>
     );
