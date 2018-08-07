@@ -22,6 +22,10 @@ class Login extends Component {
     console.log(event.target.value);
   }
 
+  _handleSubmit(event) {
+      event.preventDefault();
+    }
+
 
   // define the obSubmit function
   // get the data from the setState
@@ -33,7 +37,7 @@ class Login extends Component {
       <form class="formo" onSubmit={this._handleSubmit}>
        <h3>Login in</h3>
        <input type="text" ref="email" placeholder="enter you email" value={this.state.email} onChange={this._handleChangeEmail}/>
-       <input type="password" ref="password" placeholder="enter password" value={this.state.password_digest} onChange={this._handleChangePassword} />
+       <input type="password_digest" ref="password" placeholder="" value={this.state.password_digest} onChange={this._handleChangePassword} />
        <input type="submit" value="Login" />
      </form>
    )

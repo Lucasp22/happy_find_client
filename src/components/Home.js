@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MapsAPI from '../utils/MapsUtil';
 import MapResults from './MapResults'
+import { Link } from 'react-router-dom';
 
 const API_KEY = "AIzaSyDiQ5gOiu9480aI_pxyj7EJhJl-F3LVspM";
 const maps = new MapsAPI(API_KEY);
@@ -118,9 +119,20 @@ class SearchResult extends Component {
   render() {
     // set up suppliers array
     let suppliers = this.props.suppliers.map(
-          (s) => (<div key={s.id}><h3>{s.name}</h3></div>)
+          (s) => (<div key={s.id}><h3><Link to={{
+            pathname: '/booking',
+            state: {
+              supplier: s
+            }
+          }} >{s.name}</Link></h3></div>)
         )
-
+  //     < Link to = {{
+  //       pathname: '/courses',
+  //       search: '?sort=name',
+  //       hash: '#the-hash',
+  //       state: { fromDashboard: true }
+  //     }
+  // }/>
     // return the xHTML to render
     return(
       <div>
