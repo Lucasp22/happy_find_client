@@ -14,6 +14,7 @@ class Booking extends Component {
     // event handler and function bindings
     this._incrementPage = this._incrementPage.bind(this);
     this.setServiceID = this.setServiceID.bind(this);
+    this.setStateForm = this.setStateForm.bind(this);
     // initial state setup
     // pull out history state -- should contain supplier from search page
     const hist = props.history.location.state
@@ -29,6 +30,9 @@ class Booking extends Component {
   setServiceID(id){
     this.setState( { serviceID: id });
   }
+  setStateForm(s){
+    this.setState({ formState: s});
+  }
 
   //incrment page function
   _incrementPage(){
@@ -39,7 +43,7 @@ class Booking extends Component {
     let displayPage;
     switch (this.state.bookingPage) {
       case 2: // use details
-        displayPage = <BookingForm  onSubmit={ this._incrementPage } />
+        displayPage = <BookingForm  onSubmit={ this._incrementPage } callback={this.setStateForm} />
         break;
       case 3: // booking summary
         displayPage = <OrderSummary />

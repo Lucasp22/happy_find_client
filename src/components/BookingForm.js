@@ -29,36 +29,43 @@ class BookingForm extends Component {
   }
 
   _handleChangePageStage() {
+    if (this.props.onSubmit) {
       this.props.onSubmit();
+    } else {
+      console.warn('does <BookingForm /> need an onSubmit prop?');
+    }
+    this.props.callback(this.state) // sends user info to booking component
   }
 /////////////
-_handleChangeName(e) {
+  _handleChangeName(e) {
     this.setState( {user_name: e.target.value} );
   }
-_handleChangeEmail(e) {
+  _handleChangeEmail(e) {
   this.setState( {user_email: e.target.value} );
-}
-_handleChangePhone(e) {
+  }
+  _handleChangePhone(e) {
   this.setState( {user_phone: e.target.value} );
-}
-_handleChangeAddress(e) {
+  }
+  _handleChangeAddress(e) {
   this.setState( {user_address: e.target.value} );
-}
-_handleChangeDuration(e) {
+  }
+  _handleChangeDuration(e) {
   this.setState( {hours: e.target.value} );
-}
-_handleChangeDate(e) {
+  }
+  _handleChangeDate(e) {
   this.setState( {date: e.target.value} );
-}
-// _handleChangeDate(e) {
-//   this.setState( {service_id: e.target.value} );
-// }
+  }
+  // _handleChangeDate(e) {
+  //   this.setState( {service_id: e.target.value} );
+  // }
 /////SubmitFormUser
 _handleSubmitSaveUser(e){
   e.preventDefault();
   console.log(this.state)
   axios.post(SERVER_URL, this.state ).then( (results) => {
     console.log(results);
+    this._handleChangePageStage();
+
   })
 }
 
@@ -88,9 +95,10 @@ _handleSubmitSaveUser(e){
                     <input onChange={ this._handleChangeDate } value={this.state.date} name="date" type="date" placeholder="date" required  />
 
                 <br/><br/>
+
                   <input  name="submit" type="submit" value="Submit" />
-                    <button onClick={ this._handleChangePageStage }> Next
-                    </button>
+
+
       </form>
     </div>
   </main>
@@ -124,7 +132,7 @@ class Users extends Component  {
       <main>
       <div>
         <h1>Created Order</h1>
-        <Users onSubmit={ this.saveUser } onSubmit={ this.saveUser } />
+        <Users onSubmit={ this.saveUser }  />
 
       </div>
       </main>
