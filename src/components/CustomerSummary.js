@@ -10,7 +10,15 @@ class CustomerSummary extends Component {
     return(
       <div>
         <h1>Customer Details SUmmary Here</h1>
-        { user_name }/{ user_email }/{ user_phone }/{ user_address }/{ hours }/{ date }
+          <ul>
+            <li>{ user_name }</li>
+            <li>{ user_email }</li>
+            <li>{ user_phone }</li>
+            <li>{ user_address }</li>
+            <li>{  hours }</li>
+            <li>{  date }</li>
+          </ul>
+
       </div>
     )
   }
