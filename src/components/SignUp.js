@@ -71,6 +71,7 @@ class SignUp extends Component {
        <input type="password" ref="password" placeholder=" password confirmation" value={this.state.password_confirmation} onChange={this._handleChangePasswordConfirmation}/>
        <input type="submit" value="SignUp" disabled={this.state.address !== "" && this.state.email !== "" && this.state.password !== "" && this.state.password_confirmation !== "" ? false : true} />
      </form>
+     </main>
     )
   }
 }
