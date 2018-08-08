@@ -55,7 +55,11 @@ class SignUp extends Component {
       }}).then ( (response) => {
         alert("Success your account was created!")
         this.props.history.push("/login");
-      })
+      }).catch(err => {
+        if(err.message.includes("422")) {
+          alert("Sign up failed ! Please try again! ")
+        };
+      });
   }
 
 
