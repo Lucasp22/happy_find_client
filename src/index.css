@@ -62,7 +62,7 @@ form input, form select {
   display: inline-block;
   font-size: 1.25em;
   border: 1px solid lightgrey;
-  margin: ;
+  margin: 0.25em;
 }
 
 /* .rob {
@@ -123,7 +123,7 @@ input[type="submit"]{
   border: none;
   border-radius: 50px;
   text-transform: uppercase;
-  transtion: background-color .5s;
+  transition: background-color .5s;
 }
 
 input[type="submit"]:hover{
@@ -133,3 +133,20 @@ input[type="submit"]:hover{
 .robo{
   font-size: 25px;
 }
+
+
+.map-marker-link {
+  display: block;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 0.25em;
+  font-size: 1.25em;
+  padding: .4em .75em;
+  text-decoration: none;
+  text-shadow: 0.25em 0.25em 0.25em rgba(0,0,0,.5);
+}
+ .map-marker-link .material-icons {
+  font-size: 1.25em;
+  display: inline;
+  vertical-align: bottom;
+} 
