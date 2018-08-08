@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-const SERVER_URL = 'http://localhost:3000/';
+const SERVER_URL = 'https://happy-find.herokuapp.com/';
 
 class SignUp extends Component {
   constructor(){
