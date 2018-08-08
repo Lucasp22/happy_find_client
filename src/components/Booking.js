@@ -52,14 +52,14 @@ class Booking extends Component {
         break;
       case 3: // booking summary
         displayPage = [
-          <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />,<CustomerSummary />
+          <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />,<CustomerSummary customer={ this.state.formState } />
         ]
         break;
       // case 4: // confirm and pay
       //   displayPage = <SupplierDetails />
       //   break;
       default:
-        displayPage = <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />   
+        displayPage = <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />
     }
     return(
       <main>
