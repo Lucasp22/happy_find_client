@@ -42,7 +42,7 @@ class SignUp extends Component {
     return(
       <main>
       <form class="sign" onSubmit={this._handleSubmit}>
-       <h3>SignUp </h3>
+       <h3 class="robo">SignUp </h3>
        <input type="text" ref="name" placeholder=" name" value={this.state.name} onChange={this._handleChangeName}/>
        <input type="text" ref="email" placeholder="enter you email" value={this.state.email} onChange={this._handleChangeEmail}/>
        <input type="text" ref="address" placeholder=" address" value={this.state.address} onChange={this._handleChangeAddress}/>
