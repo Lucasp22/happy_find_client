@@ -61,9 +61,7 @@ class Home extends Component {
         />
         <MapResults 
           pos={ this.state.loc }  // centre of map
-          markers={this.state.suppliers.map((s) => { 
-            return { lat: s.latitude, lng: s.longitude }
-          })}
+          markers={ this.state.suppliers }
           zoom={this.state.zoom} // supplier pins
         />
         <SearchResult suppliers={ this.state.suppliers }/>

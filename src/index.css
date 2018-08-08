@@ -45,7 +45,6 @@ header .material-icons.larger {
 header nav {
    margin-left: auto;
    font-size: 20px;
-
 }
 
 footer {
@@ -122,10 +121,27 @@ input[type="submit"]{
   border: none;
   border-radius: 50px;
   text-transform: uppercase;
-  transtion: background-color .5s;
+  transition: background-color .5s;
 }
 
 input[type="submit"]:hover{
   background: #f4a322;
   cursor: pointer;
+}
+
+.map-marker-link {
+  display: block;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 0.25em;
+  font-size: 1.25em;
+  padding: .4em .75em;
+  text-decoration: none;
+  text-shadow: 0.25em 0.25em 0.25em rgba(0,0,0,.5);
+}
+
+.map-marker-link .material-icons {
+  font-size: 1.25em;
+  display: inline;
+  vertical-align: bottom;
 }
