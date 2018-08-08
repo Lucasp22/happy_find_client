@@ -3,8 +3,11 @@ import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker,
 } from "react-google-maps";
+import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel"
+import { Link } from 'react-router-dom';
+
+
 
 /* MapsResults requires at least one Prop to work properly.
  *  REQUIRED:
@@ -45,9 +48,23 @@ class MapResults extends Component {
   }
 }
 
-function makeMarker(coords,i) {
+function makeMarker(m,i) {
   return (
-    <Marker key={i} position={coords}/>
+    <MarkerWithLabel 
+      key={i} 
+      position={{ lat: m.latitude, lng: m.longitude }}
+      labelAnchor={ {x:0, y:15} }
+      labelClass="map-marker-label"
+    >
+      <Link className="map-marker-link" to={{
+        pathname: '/booking',
+        state: {
+          supplier: m
+        }
+      }} >
+        {m.name}<i class="material-icons">touch_app</i>
+      </Link>
+    </MarkerWithLabel>
   )
 }
 
@@ -57,7 +74,7 @@ const MapWithAMarker = withScriptjs(withGoogleMap(props =>
     zoom={props.zoom}
   >
 
-    {props.markers.map((ll,i) => makeMarker(ll,i))}
+    {props.markers.map((s,i) => makeMarker(s,i))}
   </GoogleMap>
 ));
 
