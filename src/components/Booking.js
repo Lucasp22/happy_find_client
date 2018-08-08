@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import OrderSummary from './OrderSummary'
-import BookingForm from './BookingForm'
-import SupplierDetails from './SupplierDetails'
-
-const SERVER_URL = 'https://happy-find.herokuapp.com/orders/create.json';
-
+import BookingForm from './BookingForm';
+import SupplierDetails from './SupplierDetails';
+import CustomerSummary from './CustomerSummary';
 
 class Booking extends Component {
   constructor(props) {
@@ -46,13 +41,15 @@ class Booking extends Component {
         displayPage = <BookingForm  onSubmit={ this._incrementPage } callback={this.setStateForm} />
         break;
       case 3: // booking summary
-        displayPage = <OrderSummary />
+        displayPage = [
+          <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />,<CustomerSummary />
+        ]
         break;
       // case 4: // confirm and pay
       //   displayPage = <SupplierDetails />
       //   break;
       default:
-        displayPage = <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />
+        displayPage = <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />   
     }
     return(
       <main>
