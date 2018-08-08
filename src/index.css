@@ -10,7 +10,7 @@ body {
 
 
 /* Style root Div */
-#root > div {
+  #root > div {
   display:flex;
   flex-direction: column;
   height: 100%;
@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   box-shadow: 0 0 1em rgba(0,0,0,0.3);
-}
+} 
 
 header, main, footer {
   padding: 1.5rem;
@@ -43,7 +43,9 @@ header .material-icons.larger {
 }
 
 header nav {
-  margin-left: auto;
+   margin-left: auto;
+   font-size: 20px;
+
 }
 
 footer {
@@ -60,4 +62,70 @@ form input, form select {
   display: inline-block;
   font-size: 1.25em;
   border: 1px solid lightgrey;
+}
+
+/* .rob {
+  background-color: lightgrey;
+} */
+
+/* ///////////----------------------------------- */
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: 80px auto;
+}
+
+form {
+  max-width: 50%;
+  padding: 10px;
+  border-left: 1px solid #dedede;
+  border-right: 1px solid #dedede;
+  margin: 0 auto;
+}
+
+input {
+  font-family: Raleway, sans-serif;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+input[type="text"],
+input[type="password"]{
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid #efefef;
+  position: relative;
+  transition: border .55s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #f8c573;
+}
+
+input[type="submit"]{
+  width: 60%;
+  background: #f5b042;
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  transtion: background-color .5s;
+}
+
+input[type="submit"]:hover{
+  background: #f4a322;
+  cursor: pointer;
 }

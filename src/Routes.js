@@ -19,10 +19,10 @@ const Routes = (
       <Switch> {/* only one of these will display at a time */}
       <Route path = "/booking" component={Booking} />
       <Route path = "/checkoutform" component={CheckoutForm} />
-        <Route path = "/login" component={ Login } />
-        <Route path = "/signup" component={ SignUp } />
-        <Route path = "/paysummary" component={PaySummary} />
-        <Route path = "/" component={Home} />
+      <Route path = "/login" component={ Login } />
+      <Route path = "/signup" component={ SignUp } />
+      <Route path = "/paysummary" component={PaySummary} />
+      <Route path = "/" component={Home} />
       </Switch>
       <Route exact path="/*" component={Footer} /> {/* footer */}
 
