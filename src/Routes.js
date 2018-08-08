@@ -19,9 +19,9 @@ const Routes = (
     <div>
       <Route exact path="/*" component={NavBar} /> {/* header */}
       <Switch> {/* only one of these will display at a time */}
-      <Route path = "/booking" component={Booking} />
-      <Route path = "/checkoutform" component={CheckoutForm} />
-      <Route path = "/bookingform" component={BookingForm}/>
+        <Route path = "/booking" component={Booking} />
+        <Route path = "/checkoutform" component={CheckoutForm} />
+        <Route path = "/bookingform" component={BookingForm}/>
         <Route path = "/login" component={ Login } />
         <Route path = "/signup" component={ SignUp } />
         <Route path = "/paysummary" component={PaySummary} />
