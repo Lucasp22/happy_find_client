@@ -66,6 +66,7 @@ class SignUp extends Component {
 
   render(){
     return(
+      <main>
       <form class="sign" onSubmit={this._handleSubmit} >
        <h3 class="robo" >SignUp </h3>
        <input type="text" ref="email" placeholder=" email" value={this.state.email} onChange={this._handleChangeEmail}/>
