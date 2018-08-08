@@ -31,7 +31,7 @@ class Home extends Component {
   }
 
   searchAPI(searchData) {
-    // searchData should be an object that holds 
+    // searchData should be an object that holds
     // { loc: { lat: n, lng: n }, category: '' }
     // set location from data first so user gets feedback early
     this.setState({ loc: searchData.loc, zoom: 12 })
@@ -55,11 +55,11 @@ class Home extends Component {
   render() {
     return(
       <main>
-        <SearchForm 
-          onSubmit={ this.searchAPI } 
+        <SearchForm
+          onSubmit={ this.searchAPI }
           categories = { this.state.categories }
         />
-        <MapResults 
+        <MapResults
           pos={ this.state.loc }  // centre of map
           markers={ this.state.suppliers }
           zoom={this.state.zoom} // supplier pins
@@ -103,7 +103,7 @@ class SearchForm extends Component {
     return(
       <form onSubmit={ this._handleSubmit } >
         <h2>Search</h2>
-        <input name="search" type="text" placeholder="Postcode or Suburb" required autoFocus ref={ node => { this.suburb = node } }/>
+        <input name="search" type="text" placeholder="             Postcode or Suburb" required autoFocus ref={ node => { this.suburb = node } }/>
         <select name="category" ref={ node => { this.category = node }} required>
           { this.generateOptions(this.props.categories) }
         </select>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
-  _signOut() {
+  _signOut(e) {
     localStorage.removeItem("jwtToken");
   }
 
@@ -11,18 +11,17 @@ class NavBar extends Component {
       <header>
         <h1><i className="material-icons larger">sentiment_very_satisfied</i>Happy Find</h1>
         <nav>
-            <Link to={`/home`} style = {{padding: 15}}>Home</Link>
+
             {
               window.localStorage.jwtToken ? (
                 <div>
-                  <Link to = "/" >Edit Profile</Link>
+                  <Link to = {"/"} style = {{padding: 15}}>Edit Profile</Link>
                   <Link to ="/"></Link>
-                  <Link to ="/">
-                    <button onClick={this._signOut}>Sign out</button>
-                  </Link>
+                  <Link to ="/" onClick={this._signOut}>Sign out</Link>
                 </div>
               ) : (
                 <div>
+                  <Link to={`/home`} style = {{padding: 15}}>Home</Link>
                   <Link to={`/signup`} style = {{padding:15}}>Sign Up</Link>
                   <Link to={`/login`} style = {{padding:15}}>Log in</Link>
                 </div>

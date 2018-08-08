@@ -62,12 +62,8 @@ form input, form select {
   display: inline-block;
   font-size: 1.25em;
   border: 1px solid lightgrey;
-  margin: ;
+  margin: 5px;
 }
-
-/* .rob {
-  background-color: lightgrey;
-} */
 
 /* ///////////----------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Raleway);
@@ -130,6 +126,6 @@ input[type="submit"]:hover{
   background: #f4a322;
   cursor: pointer;
 }
-.robo{
+.logino{
   font-size: 25px;
 }
