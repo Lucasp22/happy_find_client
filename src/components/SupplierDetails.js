@@ -8,7 +8,7 @@ class SupplierDetails extends Component {
     super(props);
 
     // bind event handlers
-    this._handleChangePageStage = this._handleChangePageStage.bind(this);
+    this._buttonClick = this._buttonClick.bind(this);
 
     // state
     this.state = {
@@ -24,7 +24,7 @@ class SupplierDetails extends Component {
     }
   }
 
-  _handleChangePageStage() {
+  _buttonClick() {
     // console.log(this.props);
     // do something else
     // do anothe something
@@ -43,6 +43,8 @@ class SupplierDetails extends Component {
           <li>{ email }</li>
           <li>{ price }</li>
         </ul>
+
+        <button onClick={ this._buttonClick } >Next</button>
       </div>
     )
   }//end of Render
