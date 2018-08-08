@@ -15,13 +15,6 @@ class SupplierDetails extends Component {
       services: [{}],
       fetch_state: 0
     }
-    // got to get supplier details from main form, expect supplier details to be provided in prop
-    if (props.supplier) {
-      axios.get(API_URL + props.supplier.id + "/services").then((r) => {
-        this.setState({ services: r.data, fetch_state: 1 })
-        this.props.callback(r.data[0].id)
-      })
-    }
   }
 
   _buttonClick() {
@@ -32,7 +25,19 @@ class SupplierDetails extends Component {
     this.props.onSubmit();
   }
 
+  refreshServices() {
+    if (this.props.supplier && this.state.fetch_state === 0) {
+      axios.get(API_URL + this.props.supplier.id + "/services").then((r) => {
+        this.setState({ services: r.data, fetch_state: 1 })
+        this.props.callback(r.data[0].id)
+      })
+    }
+  }
+
   render() {
+    // got to get supplier details from main form, expect supplier details to be provided in prop
+    this.refreshServices();
+
     const { name, email } = this.props.supplier || { name: 'testing', email: 'test@test.co' }
     const { price } = this.state.services[0] || { price: "100" }
     return (
