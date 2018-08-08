@@ -5,10 +5,10 @@ import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Booking from './components/Booking';
-import CheckoutForm from './components/CheckoutForm';
-import PaySummary from './components/PaySummary';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+
+
 
 
 
