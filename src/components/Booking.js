@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import BookingForm from './BookingForm';
 import SupplierDetails from './SupplierDetails';
 import CustomerSummary from './CustomerSummary';
+import Axios from 'axios';
+
+const API_URL = "https://happy-find.herokuapp.com/supplier/"
 
 class Booking extends Component {
   constructor(props) {
@@ -13,6 +16,13 @@ class Booking extends Component {
     // initial state setup
     // pull out history state -- should contain supplier from search page
     const hist = props.history.location.state
+    const supplierFromProps = props.match.params.id
+
+    if (supplierFromProps) {
+      Axios.get(API_URL + supplierFromProps).then((r) => {
+        this.setState({ supplier: r.data })
+      })
+    }
 
     this.state = {
       // ternary -- comparison ? value if true : value if false

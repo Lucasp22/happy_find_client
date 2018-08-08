@@ -50,21 +50,23 @@ class MapResults extends Component {
 
 function makeMarker(m,i) {
   return (
-    <MarkerWithLabel 
-      key={i} 
-      position={{ lat: m.latitude, lng: m.longitude }}
-      labelAnchor={ {x:0, y:15} }
-      labelClass="map-marker-label"
-    >
-      <Link className="map-marker-link" to={{
-        pathname: '/booking',
-        state: {
-          supplier: m
-        }
-      }} >
-        {m.name}<i class="material-icons">touch_app</i>
-      </Link>
-    </MarkerWithLabel>
+      <MarkerWithLabel 
+        key={i} 
+        position={{ lat: m.latitude, lng: m.longitude }}
+        labelAnchor={ {x:0, y:15} }
+        labelClass="map-marker-label"
+        clickable={false}
+        defaultClickable={false}
+      >
+        <Link className="map-marker-link" to={{
+          pathname: '/booking/' + m.id ,
+          state: {
+            supplier: m
+          }
+        }} >
+          {m.name}<i className="material-icons">touch_app</i>
+        </Link>
+      </MarkerWithLabel>
   )
 }
 
