@@ -21,7 +21,7 @@ body {
   flex-direction: column;
   height: 100%;
   max-width: 960px;
-  min-width: 576px;
+  min-width: 320px;
   background-color: white;
   min-height: 100vh;
   margin: 0 auto;
@@ -69,9 +69,9 @@ form {
 
 form input, form select {
   display: inline-block;
-  font-size: 1.25em;
+  font-size: 1.15em;
   border: 1px solid lightgrey;
-  margin: 5px;
+  margin: .25em;
 }
 
 
@@ -86,17 +86,18 @@ form input, form select {
 
 .container {
   width: 80%;
-  margin: 80px auto;
+  margin: 4em auto;
 }
 
 form {
   max-width: 50%;
-  padding: 10px;
+  min-width: 256px;
+  padding: .5em;
   border-left: 1px solid #dedede;
   border-right: 1px solid #dedede;
   border-top: 1px solid #dedede;
   border-bottom: 1px solid #dedede;
-  margin: 35px auto;
+  margin: 2.2em auto;
 }
 
 input {
@@ -104,12 +105,12 @@ input {
   display: block;
   width: 80%;
   margin: 0 auto;
-  padding: 10px;
+  padding: .5em;
 }
 
 input[type="text"],
 input[type="password"]{
-  margin-bottom: 20px;
+  margin-bottom: 1.6em;
   border: none;
   border-bottom: 1px solid #efefef;
   position: relative;
@@ -127,7 +128,7 @@ input[type="submit"]{
   width: 60%;
   background: #f5b042;
   border: none;
-  border-radius: 50px;
+  border-radius: 2em;
   text-transform: uppercase;
   transition: background-color .5s;
 }
@@ -137,7 +138,7 @@ input[type="submit"]:hover{
   cursor: pointer;
 }
 .logino{
-  font-size: 25px;
+  font-size: 1.5em;
 }
 
 
@@ -175,14 +176,14 @@ input[type="submit"]:hover{
  h2 {
  	font-size: 3rem;
  	text-align: center;
- 	padding-top: 9px;
+ 	padding-top: .5em;
  	/* margin: 0 0 30px 0; */
  }
 
  /* NAV SECTION */
 
  .companyName {
- 	padding: 18px 17px 18px 15%;
+ 	padding: 1.2em 1.2em 1.2em 15%;
  	margin: 0;
  	float: left;
  	color: #fff;
@@ -209,7 +210,7 @@ input[type="submit"]:hover{
  	padding: 0;
  	margin: 0;
  	width: 100%;
- 	border-right: 20px solid rgba(0,0,0,0.7);
+ 	border-right: 1.4em solid rgba(0,0,0,0.7);
  }
 
  header nav ul li {
@@ -229,7 +230,7 @@ input[type="submit"]:hover{
 
  header nav ul li a {
  	text-decoration: none;
- 	padding: 25px 20px;
+ 	padding: 1.8em 1.4em;
  	color: #fff;
  	margin: 0;
  	display: inline-block;
@@ -267,11 +268,11 @@ input[type="submit"]:hover{
    }
 
    header nav ul li a {
-     padding: 25px 2%;
+     padding: 1.8em 2%;
    }
  }
  .search{
-   font-size: 35px;
+   font-size: 2.2em;
  }
 
 
@@ -346,4 +347,11 @@ input[type="submit"]:hover{
   color: white;
   padding: 1em 1em 0em 1em;
   text-align: bottom;
+}
+
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: .68rem;
+  }
 }
