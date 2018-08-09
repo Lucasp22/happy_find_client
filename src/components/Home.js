@@ -135,12 +135,19 @@ class SearchResult extends Component {
   render() {
     // set up suppliers array
     let suppliers = this.props.suppliers.map(
-          (s) => (<div key={s.id}><h3><Link to={{
-            pathname: '/booking',
-            state: {
-              supplier: s
-            }
-          }} >{s.name}</Link></h3></div>)
+          (s) => (
+            <div className="search-result" key={s.id}>
+              <div>
+                <h3>{s.name}</h3>
+                <span>{s.address}</span>
+              </div>
+              <Link className="btn btn-book" to={{
+                pathname: '/booking',
+                state: {
+                  supplier: s
+                }
+              }} >Book Me!</Link>
+            </div>)
         )
   //     < Link to = {{
   //       pathname: '/courses',
