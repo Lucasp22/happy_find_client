@@ -43,6 +43,7 @@ class MapResults extends Component {
         pos={ this.props.pos || {} }
         markers={ this.props.markers || [] }
         zoom={ this.props.zoom || 4 }
+        onChange={ (map) => { this.props.onChange(map.getCenter(), map.getZoom())} }
       />
     )
   }
@@ -72,8 +73,11 @@ function makeMarker(m,i) {
 
 const MapWithAMarker = withScriptjs(withGoogleMap(props =>
   <GoogleMap
+    ref={ref => this.map = ref}
     center={props.pos}
     zoom={props.zoom}
+    onZoomChanged={ () => props.onChange(this.map) }
+    onDragEnd={ () => props.onChange(this.map) }
   >
 
     {props.markers.map((s,i) => makeMarker(s,i))}
