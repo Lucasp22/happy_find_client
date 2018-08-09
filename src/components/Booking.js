@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import BookingForm from './BookingForm';
 import SupplierDetails from './SupplierDetails';
 import CustomerSummary from './CustomerSummary';
+import PaySummary from './PaySummary';
+
 import Axios from 'axios';
 
 const API_URL = "https://happy-find.herokuapp.com/supplier/"
@@ -52,7 +54,7 @@ class Booking extends Component {
         break;
       case 3: // booking summary
         displayPage = [
-          <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />,<CustomerSummary customer={ this.state.formState } />
+          <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />,<CustomerSummary customer={ this.state.formState } />, <PaySummary />
         ]
         break;
       // case 4: // confirm and pay

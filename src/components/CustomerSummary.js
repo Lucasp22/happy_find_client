@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
 
-
-
 class CustomerSummary extends Component {
 
   render() {
@@ -24,4 +22,4 @@ class CustomerSummary extends Component {
   }
 }
 
-export default CustomerSummary;
+export default CustomerSummary ;
