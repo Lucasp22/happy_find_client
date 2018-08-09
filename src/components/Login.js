@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const SERVER_URL = 'https://happy-find.herokuapp.com/';
 
@@ -55,7 +56,7 @@ class Login extends Component {
       })
       .catch((err) => {
         if(err) {
-          alert("Check your email or password!")
+          swal("Check your email or password!")
         };
     })
   }

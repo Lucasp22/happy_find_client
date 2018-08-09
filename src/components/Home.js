@@ -22,6 +22,7 @@ class Home extends Component {
 
     // bind methods
     this.searchAPI = this.searchAPI.bind(this);
+    this.updateResults = this.updateResults.bind(this);
 
 
     // get categories
@@ -30,11 +31,27 @@ class Home extends Component {
     });
   }
 
+  updateResults(centre, zoom) {
+    const data = {
+      "geocode": {
+        "latitude": centre.lat(),
+        "longitude": centre.lng()
+      },
+      "radius": 23 - zoom,
+      "skill_category": this.state.category
+    }
+    // get search results TODO: update to send data when search API Ready
+    axios.post(SERVER_URL + 'search_suppliers', data).then((r) => {
+      this.setState({ suppliers: r.data });
+      console.log(r);
+    });
+  }
+
   searchAPI(searchData) {
     // searchData should be an object that holds
     // { loc: { lat: n, lng: n }, category: '' }
     // set location from data first so user gets feedback early
-    this.setState({ loc: searchData.loc, zoom: 12 })
+    this.setState({ loc: searchData.loc, zoom: 10, category: searchData.category })
     console.log(searchData);
     const data = {
       "geocode": {
@@ -62,7 +79,8 @@ class Home extends Component {
         <MapResults
           pos={ this.state.loc }  // centre of map
           markers={ this.state.suppliers }
-          zoom={this.state.zoom} // supplier pins
+          zoom={ this.state.zoom } // supplier pins
+          onChange={ this.updateResults }
         />
         <SearchResult suppliers={ this.state.suppliers }/>
       </main>
@@ -117,12 +135,19 @@ class SearchResult extends Component {
   render() {
     // set up suppliers array
     let suppliers = this.props.suppliers.map(
-          (s) => (<div key={s.id}><h3><Link to={{
-            pathname: '/booking',
-            state: {
-              supplier: s
-            }
-          }} >{s.name}</Link></h3></div>)
+          (s) => (
+            <div className="search-result" key={s.id}>
+              <div>
+                <h3>{s.name}</h3>
+                <span>{s.address}</span>
+              </div>
+              <Link className="btn btn-book" to={{
+                pathname: '/booking',
+                state: {
+                  supplier: s
+                }
+              }} >Book Me!</Link>
+            </div>)
         )
   //     < Link to = {{
   //       pathname: '/courses',

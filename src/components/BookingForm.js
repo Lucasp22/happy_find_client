@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
 const SERVER_URL = 'https://happy-find.herokuapp.com/orders/create.json';
 
 class BookingForm extends Component {
@@ -74,23 +73,24 @@ _handleSubmitSaveUser(e){
       <main>
       <div>
       <h4>Your Details</h4>
-      <form onSubmit={ this._handleSubmitSaveUser }>
 
-        <label>Full Name</label>
+      <form onSubmit={ this._handleSubmitSaveUser }>
+        <div> <label>Full Name</label>
           <input onChange={ this._handleChangeName } value={this.state.user_name} name="name" type="text" placeholder="Full Name" required autoFocus />
+        </div>
 
           <label>Email</label>
           <input onChange={ this._handleChangeEmail } value={this.state.user_email} name="email" type="text" placeholder="Email" required  />
-
+            <br/>
             <label>Phone</label>
             <input onChange={ this._handleChangePhone } value={this.state.user_phone} name="phone" type="text" placeholder="Phone" required />
-
+              <br/>
               <label>Address</label>
               <input onChange={ this._handleChangeAddress } value={this.state.user_address} name="address" type="text"  placeholder="Full address" required  />
-
+                  <br/>
                   <label>Duration</label>
                   <input onChange={ this._handleChangeDuration } value={this.state.hours} name="duration" type="text" placeholder="Duration" required />
-
+                    <br/>
                     <label>Date</label>
                     <input onChange={ this._handleChangeDate } value={this.state.date} name="date" type="date" placeholder="date" required  />
 
