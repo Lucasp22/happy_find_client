@@ -342,3 +342,68 @@ fieldset {
 label {
   display: inline-block;
 }
+
+
+.summary {
+  /* background-color: red; */
+  margin-top: 1em;
+}
+
+.summary li {
+    display: inline-block;
+    list-style: none;
+    padding: 1em;
+    margin: .25em;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey; 
+}
+
+.checkout {
+  background-color: lightgrey;
+  padding: 1em;
+  margin: .25em;
+}
+
+.checkout button {
+  font-size: 1.5em;
+  border: 0;
+  border-radius: .25em;
+  padding: .25em;
+}
+
+.example {
+  margin-top: 1rem;
+}
+
+.checkout-progress > .info, .checkout-progress > .graphic  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.checkout-progress > .graphic {
+  position: relative;
+}
+
+.circle {
+  margin-top: 1em;
+  border-radius: 50%;
+  border: 20px solid black;
+  border-color: lightgrey;
+  z-index: 1;
+}
+
+.circle.active {
+  border-color: var(--gold);
+}
+
+.line {
+  position: absolute;
+  top: 2.25em;
+  border-bottom: 1px solid lightgrey;
+  width: 33%;
+}
+
+.line.active {
+  border-color: var(--gold);
+}

@@ -48,13 +48,13 @@ class NavBar extends Component {
   render() {
     return(
       <header>
-        <div class="navWraper" id="home">
-         <div class="clearfix">
-             <h2 class="companyName">Happy Find</h2>
+        <div className="navWraper" id="home">
+         <div className="clearfix">
+             <h2 className="companyName">Happy Find</h2>
           </div>
         </div>
 
-        <nav class="mainNav">
+        <nav className="mainNav">
           {
             window.localStorage.jwtToken ? (
             <ul>

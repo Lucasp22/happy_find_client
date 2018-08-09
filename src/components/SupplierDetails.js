@@ -41,15 +41,13 @@ class SupplierDetails extends Component {
     const { name, email } = this.props.supplier || { name: 'testing', email: 'test@test.co' }
     const { price } = this.state.services[0] || { price: "100" }
     return (
-      <div>
-        <h1 class="summary">SupplierDetails</h1>
+      <div class="summary">
+        <h2>SupplierDetails</h2>
         <ul>
           <li>{ name }</li>
           <li>{ email }</li>
           <li>{ price }</li>
         </ul>
-
-        <button onClick={ this._buttonClick } >Next</button>
       </div>
     )
   }//end of Render

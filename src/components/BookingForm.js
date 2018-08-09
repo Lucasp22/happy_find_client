@@ -71,26 +71,26 @@ _handleSubmitSaveUser(e){
     return(
       <main>
       <div>
-      <h4>Your Details</h4>
+      <h2>Sign in or Sign Up</h2>
 
       <form onSubmit={ this._handleSubmitSaveUser }>
         <fieldset> 
-          <label for="name">Full Name</label>
+          <label htmlFor="name">Full Name</label>
           <input onChange={ this._handleChangeName } value={this.state.user_name} name="name" type="text" placeholder="Full Name" required autoFocus />
         </fieldset>
 
         <fieldset> 
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <input onChange={ this._handleChangeEmail } value={this.state.user_email} name="email" type="text" placeholder="Email" required  />
         </fieldset>
 
         <fieldset>
-          <label for="phone">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <input onChange={ this._handleChangePhone } value={this.state.user_phone} name="phone" type="text" placeholder="Phone" required />
         </fieldset>
           
         <fieldset>
-          <label for="address">Address</label>
+          <label htmlFor="address">Address</label>
           <input 
             onChange={ this._handleChangeAddress }
             value={this.state.user_address}
@@ -101,7 +101,7 @@ _handleSubmitSaveUser(e){
         </fieldset>
 
         <fieldset>
-          <label for="duration">Duration</label>
+          <label htmlFor="duration">Duration</label>
           <input 
             onChange={ this._handleChangeDuration }
             value={this.state.hours}
@@ -112,7 +112,7 @@ _handleSubmitSaveUser(e){
         </fieldset>
                     
         <fieldset>
-          <label for="date">Date</label>
+          <label htmlFor="date">Date</label>
           <input 
             onChange={ this._handleChangeDate }
             value={this.state.date}

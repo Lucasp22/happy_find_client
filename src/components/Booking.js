@@ -64,11 +64,25 @@ class Booking extends Component {
         ]
         break;
       default:
-        displayPage = <BookingForm onSubmit={this._incrementPage} callback={this.setStateForm} />
+        this.setState({bookingPage: 1});
     }
     return(
       <main>
-        <h1>Booking {this.state.bookingPage}</h1>
+        <div className="checkout-progress">
+          <div className="info">
+            <div className={("stage" + this.state.bookingPage >= 1 ? ' active' : '')}>
+              <span>Step 1 - Your Details</span>
+            </div>
+            <div className={"stage" + this.state.bookingPage >= 2 ? ' active' : ''}>
+              <span>Step 2 - Summary</span>
+            </div>
+          </div>
+          <div className="graphic">
+            <div className={"circle" + this.state.bookingPage >= 1 ? ' active' : ''} />
+            <div className={"line" + this.state.bookingPage >= 2 ? ' active' : ''} />
+            <div className={"line" + this.state.bookingPage >= 2 ? ' active' : ''} />
+          </div>
+        </div>
         {displayPage}
       </main>
     )
