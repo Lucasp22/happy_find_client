@@ -18,7 +18,7 @@ const Routes = (
       <Switch> {/* only one of these will display at a time */}
         <Route path = "/booking/:id" component={Booking} />
         <Route path = "/booking" component={Booking} />
-        <Route path= "/edit" component={Edit} />
+        <Route path = "/edit" component={Edit} />
         <Route path = "/login" component={ Login } />
         <Route path = "/signup" component={ SignUp } />
         <Route path = "/search" component={Home} />

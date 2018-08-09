@@ -49,25 +49,28 @@ class Booking extends Component {
     // switch between components bsed on booking process stage
     let displayPage;
     switch (this.state.bookingPage) {
-      case 2: // use details
+      case 1: // user details
         displayPage = <BookingForm  onSubmit={ this._incrementPage } callback={this.setStateForm} />
         break;
-      case 3: // booking summary
+      case 2: // booking summary - displayPage is an array.
         displayPage = [
-          <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />,<CustomerSummary customer={ this.state.formState } />, <PaySummary />
+          <SupplierDetails 
+            onSubmit={this._incrementPage} 
+            supplier={this.state.supplier} 
+            callback={this.setServiceID} 
+          />,
+          <CustomerSummary customer={ this.state.formState } />,
+          <PaySummary />
         ]
         break;
-      // case 4: // confirm and pay
-      //   displayPage = <SupplierDetails />
-      //   break;
       default:
-        displayPage = <SupplierDetails onSubmit={this._incrementPage} supplier={this.state.supplier} callback={this.setServiceID} />
+        displayPage = <BookingForm onSubmit={this._incrementPage} callback={this.setStateForm} />
     }
     return(
       <main>
-      <h1>Booking {this.state.bookingPage}</h1>
-       {displayPage}
-     </main>
+        <h1>Booking {this.state.bookingPage}</h1>
+        {displayPage}
+      </main>
     )
   }// end of reder
 }//end of class Booking

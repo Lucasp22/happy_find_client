@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const SERVER_URL = 'https://happy-find.herokuapp.com/orders/create.json';
@@ -75,29 +74,55 @@ _handleSubmitSaveUser(e){
       <h4>Your Details</h4>
 
       <form onSubmit={ this._handleSubmitSaveUser }>
-        <div> <label>Full Name</label>
+        <fieldset> 
+          <label for="name">Full Name</label>
           <input onChange={ this._handleChangeName } value={this.state.user_name} name="name" type="text" placeholder="Full Name" required autoFocus />
-        </div>
+        </fieldset>
 
-          <label>Email</label>
+        <fieldset> 
+          <label for="email">Email</label>
           <input onChange={ this._handleChangeEmail } value={this.state.user_email} name="email" type="text" placeholder="Email" required  />
-            <br/>
-            <label>Phone</label>
-            <input onChange={ this._handleChangePhone } value={this.state.user_phone} name="phone" type="text" placeholder="Phone" required />
-              <br/>
-              <label>Address</label>
-              <input onChange={ this._handleChangeAddress } value={this.state.user_address} name="address" type="text"  placeholder="Full address" required  />
-                  <br/>
-                  <label>Duration</label>
-                  <input onChange={ this._handleChangeDuration } value={this.state.hours} name="duration" type="text" placeholder="Duration" required />
-                    <br/>
-                    <label>Date</label>
-                    <input onChange={ this._handleChangeDate } value={this.state.date} name="date" type="date" placeholder="date" required  />
+        </fieldset>
 
-                <br/><br/>
+        <fieldset>
+          <label for="phone">Phone</label>
+          <input onChange={ this._handleChangePhone } value={this.state.user_phone} name="phone" type="text" placeholder="Phone" required />
+        </fieldset>
+          
+        <fieldset>
+          <label for="address">Address</label>
+          <input 
+            onChange={ this._handleChangeAddress }
+            value={this.state.user_address}
+            name="address"
+            type="text"
+            placeholder="Full address"
+            required />
+        </fieldset>
 
-                  <input  name="submit" type="submit" value="Submit" />
-
+        <fieldset>
+          <label for="duration">Duration</label>
+          <input 
+            onChange={ this._handleChangeDuration }
+            value={this.state.hours}
+            name="duration"
+            type="text"
+            placeholder="Duration"
+            required />
+        </fieldset>
+                    
+        <fieldset>
+          <label for="date">Date</label>
+          <input 
+            onChange={ this._handleChangeDate }
+            value={this.state.date}
+            name="date"
+            type="date"
+            placeholder="date"
+            required />
+        </fieldset>
+                
+        <input name="submit" type="submit" value="Submit" />
 
       </form>
     </div>
