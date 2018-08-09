@@ -5,6 +5,7 @@ import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Booking from './components/Booking';
+import Edit from './components/Edit';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 
@@ -16,6 +17,7 @@ const Routes = (
       <Switch> {/* only one of these will display at a time */}
         <Route path = "/booking/:id" component={Booking} />
         <Route path = "/booking" component={Booking} />
+        <Route path= "/edit" component={Edit} />
         <Route path = "/login" component={ Login } />
         <Route path = "/signup" component={ SignUp } />
         <Route path = "/" component={Home} />
