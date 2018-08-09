@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+:root {
+  --gold: #f4a322;
+}
 
 body {
   margin: 0;
@@ -28,7 +31,7 @@ header, main, footer {
 
 header {
   display: flex;
-  background-color: goldenrod;
+  background-color: var(--gold);
 }
 
 header h1 {
@@ -145,4 +148,42 @@ input[type="submit"]:hover{
   font-size: 1.25em;
   display: inline;
   vertical-align: bottom;
+}
+
+
+.search-result {
+  margin: .5em auto;
+  padding: 1em;
+  border-radius: .5em;
+  background-color:  var(--gold);
+  display: grid;
+  grid-template-areas: "content button"
+}
+
+.search-result > div {
+  grid-area: content;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 2em;
+  padding: .75em 1.5em;
+  box-shadow: 0 0 .25em rgba(0,0,0,0.25);
+  text-decoration: none;
+  transition: background-color .25s, box-shadow .25s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 .4em rgba(0,0,0,0.5);
+}
+
+.btn-book {
+  background-color: lightgrey;
+  color: black;
+  margin-left: auto;
+  grid-area: button;
+}
+
+.btn-book:hover {
+  background-color: white;
 }
