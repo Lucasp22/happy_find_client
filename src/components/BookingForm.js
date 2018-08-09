@@ -131,38 +131,38 @@ _handleSubmitSaveUser(e){
   }//end of render
 }//end of booking
 
-class Users extends Component  {
-  constructor() {
-      super();
-      this.state = {
-      orders: []
-    };
-    this.saveOrder = this.saveOrder.bind(this);
-    const fetchOrders = () => {
-      axios.get(SERVER_URL).then( (results) => {
-      console.log(results);
-      this.setState({ orders: results.data });
-      setTimeout(fetchOrders, 4000);
-      })
-    }
-    fetchOrders();
-    }
-      saveOrder(s) {
-        axios.post(SERVER_URL, {user_name: s.user_name, user_email: s.user_email, user_phone: s.user_phone, user_address: s.user_address, hours: s.hours, date: s.date}).then((results) => {
-      this.setState( {orders: [results.data,...this.state.orders] });
-    })
-  }
-  render (){
-    return (
-      <main>
-      <div>
-        <h1>Created Order</h1>
-        <Users onSubmit={ this.saveUser }  />
+// class Users extends Component  {
+//   constructor() {
+//       super();
+//       this.state = {
+//       orders: []
+//     };
+//     this.saveOrder = this.saveOrder.bind(this);
+//     const fetchOrders = () => {
+//       axios.get(SERVER_URL).then( (results) => {
+//       console.log(results);
+//       this.setState({ orders: results.data });
+//       setTimeout(fetchOrders, 4000);
+//       })
+//     }
+//     fetchOrders();
+//     }
+//       saveOrder(s) {
+//         axios.post(SERVER_URL, {user_name: s.user_name, user_email: s.user_email, user_phone: s.user_phone, user_address: s.user_address, hours: s.hours, date: s.date}).then((results) => {
+//       this.setState( {orders: [results.data,...this.state.orders] });
+//     })
+//   }
+//   render (){
+//     return (
+//       <main>
+//       <div>
+//         <h1>Created Order</h1>
+//         <Users onSubmit={ this.saveUser }  />
 
-      </div>
-      </main>
-    )
-  }
-}//end of createUser
+//       </div>
+//       </main>
+//     )
+//   }
+// }//end of createUser
 
 export default BookingForm;

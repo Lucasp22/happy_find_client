@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 
 

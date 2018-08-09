@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
 
@@ -47,7 +46,7 @@ class Edit extends Component {
       "Authorization": localStorage.getItem("jwtToken")
     }}).then((response)=> {
       localStorage.setItem('user', JSON.stringify(response.data));
-      this.state.name = response.data.name;
+      this.setState( {name: response.data.name})
       swal({icon: "success",});
       this.props.history.push("/home");
 
