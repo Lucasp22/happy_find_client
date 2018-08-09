@@ -25,12 +25,17 @@ class Edit extends Component {
       <label>Address</label>
       <input name="address" type="text" placeholder="Address" required autoFocus />
       <br/>
-      <input  name="submit" type="submit" value="Submit" />
+      <input  name="submit" type="submit" value="Edit" />
       </form>
       </div>
 
     )
   }
 }
+
+
+
+
+
 
 export default Edit;
