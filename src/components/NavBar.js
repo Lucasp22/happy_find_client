@@ -39,6 +39,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 class NavBar extends Component {
   _signOut(e) {
     localStorage.removeItem("jwtToken");
@@ -56,7 +57,7 @@ class NavBar extends Component {
                   <div>
                     <ul>
                       <li>
-                        <Link to = {"/"}>Edit Profile</Link>
+                        <Link to = {"/edit"}>Edit Profile</Link>
                       </li>
                       <li>
                         <Link to ="/">Home</Link>
