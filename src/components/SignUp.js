@@ -68,8 +68,8 @@ class SignUp extends Component {
   render(){
     return(
       <main>
-      <form class="sign" onSubmit={this._handleSubmit} >
-       <h3 class="logino" >SignUp </h3>
+      <form className="sign" onSubmit={this._handleSubmit} >
+       <h3 className="logino" >SignUp </h3>
        <input type="text" ref="email" placeholder=" email" value={this.state.email} onChange={this._handleChangeEmail}/>
        <input type="text" ref="name" placeholder=" name" value={this.state.name} onChange={this._handleChangeName}/>
        <input type="text" ref="address" placeholder=" address" value={this.state.address} onChange={this._handleChangeAddress}/>

@@ -71,7 +71,7 @@ class Login extends Component {
     return(
       <div>
       <form className="formo" onSubmit={this._handleSubmit}>
-       <h3 class="logino">Login in</h3>
+       <h3 className="logino">Login in</h3>
        <input type="text" ref="email" placeholder="enter you email" value={this.state.email} onChange={this._handleChangeEmail}/>
        <input type="password" ref="password" placeholder="password" value={this.state.password} onChange={this._handleChangePassword} />
        <input type="submit" value="Login" />

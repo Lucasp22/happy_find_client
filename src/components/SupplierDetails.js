@@ -41,7 +41,7 @@ class SupplierDetails extends Component {
     const { name, email } = this.props.supplier || { name: 'testing', email: 'test@test.co' }
     const { price } = this.state.services[0] || { price: "100" }
     return (
-      <div class="summary">
+      <div className="summary">
         <h2>SupplierDetails</h2>
         <ul>
           <li>{ name }</li>

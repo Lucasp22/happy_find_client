@@ -55,7 +55,7 @@ function makeMarker(m,i) {
         key={i} 
         position={{ lat: m.latitude, lng: m.longitude }}
         labelAnchor={ {x:0, y:15} }
-        labelClass="map-marker-label"
+        labelclassName="map-marker-label"
         clickable={false}
         defaultClickable={false}
       >

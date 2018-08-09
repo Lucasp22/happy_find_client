@@ -7,7 +7,7 @@ class BookingForm extends Component {
   constructor() {
     super();
 
-    const user = JSON.parse(localStorage.user);
+    const user = localStorage.user ? JSON.parse(localStorage.user) : {};
     
     this.state = {
       user_name: user.name,

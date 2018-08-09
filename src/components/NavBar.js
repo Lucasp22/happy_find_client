@@ -43,6 +43,7 @@ import { Link } from 'react-router-dom';
 class NavBar extends Component {
   _signOut(e) {
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("user");
   }
 
   render() {
