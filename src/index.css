@@ -1,4 +1,7 @@
+/* ///////////----------------------------------- */
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 :root {
   --gold: #f4a322;
 }
@@ -6,7 +9,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Raleway, sans-serif;
   background-color: gainsboro;
   box-sizing: border-box;
 }
@@ -51,6 +54,10 @@ header nav {
 
 }
 
+main {
+  flex-grow: 1;
+}
+
 footer {
   margin-top: auto;
   text-align: center;
@@ -68,8 +75,7 @@ form input, form select {
   margin: 5px;
 }
 
-/* ///////////----------------------------------- */
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 
 
 
@@ -186,4 +192,40 @@ input[type="submit"]:hover{
 
 .btn-book:hover {
   background-color: white;
+}
+
+.btn-splash {
+  font-size: .5em;
+  margin-top: 1em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #0b5dee/* #f4a322; */
+}
+
+
+.splash {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: var(--gold);
+  justify-content: center;
+  padding-bottom: 25%;
+}
+
+.splash > .hero {
+  display: flex;
+}
+
+.splash > .hero > img {
+  mix-blend-mode: hard-light;
+}
+
+.splash > .stuff {
+  font-family: Raleway, sans-serif;
+  font-size: 3em;
+  color: white;
+  padding: 1em 1em 0em 1em;
+  text-align: bottom;
 }

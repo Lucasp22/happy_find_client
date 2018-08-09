@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Booking from './components/Booking';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Splash from './components/Splash';
 
 
 const Routes = (
@@ -18,7 +19,9 @@ const Routes = (
         <Route path = "/booking" component={Booking} />
         <Route path = "/login" component={ Login } />
         <Route path = "/signup" component={ SignUp } />
-        <Route path = "/" component={Home} />
+        <Route path = "/search" component={Home} />
+        <Route path = "/home" component={Home} />
+        <Route path = "/" component={ Splash } />
       </Switch>
       <Route exact path="/*" component={Footer} /> {/* footer */}
     </div>
