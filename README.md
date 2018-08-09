@@ -25,9 +25,17 @@ Help us to improve it, share and enjoy :) Please create a Github issue if there 
 ### Participants in the project
 
 - Wenjun Liu
+https://github.com/kennyliuwenjun
+
 - Tim Caldwell
+https://github.com/zailleh
+
 - Robert Maculewicz
+https://github.com/Robert1211
+
 - Lucas Padua
+https://github.com/Lucasp22
+
 
 ### License
 - GA Copyright © 2018
