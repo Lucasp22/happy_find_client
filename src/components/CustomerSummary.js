@@ -9,7 +9,7 @@ class CustomerSummary extends Component {
     const { user_name, user_email, user_phone, user_address, hours, date } = this.props.customer || { user_name: 'testing', user_email: 'test@test.co',user_phone: '111', user_address: 'xxx', hours: '1', date: '1984-22-2' }
     return(
       <div>
-        <h4>Your details</h4>
+        <h4 class="summary">Your details</h4>
           <ul>
             <li>{ user_name }</li>
             <li>{ user_email }</li>

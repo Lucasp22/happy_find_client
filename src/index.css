@@ -22,31 +22,30 @@ body {
   box-shadow: 0 0 1em rgba(0,0,0,0.3);
 }
 
-header, main, footer {
+/*header, */main, footer {
   padding: 1.5rem;
 }
 
-header {
+ /* header {
   display: flex;
   background-color: goldenrod;
-}
+}  */
 
-header h1 {
+/* header h1 {
   margin: 0;
   color: white;
   text-shadow: 0.1em 0.1em 0.25em rgba(0,0,0,0.25);
-}
+} */
 
-header .material-icons.larger {
+/* header .material-icons.larger {
   font-size: 1.25em;
   vertical-align: text-bottom;
-}
+}  */
 
-header nav {
+   /* header nav {
    margin-left: auto;
    font-size: 20px;
-
-}
+}  */
 
 footer {
   margin-top: auto;
@@ -88,7 +87,7 @@ form {
   border-right: 1px solid #dedede;
   border-top: 1px solid #dedede;
   border-bottom: 1px solid #dedede;
-  margin: 75px auto;
+  margin: 35px auto;
 }
 
 input {
@@ -148,3 +147,143 @@ input[type="submit"]:hover{
   display: inline;
   vertical-align: bottom;
 }
+ /* ///////////////////////////////////////// */
+
+
+ .clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+
+ * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;  }
+
+ .innerWrapper {
+ 	max-width: 920px;
+ 	margin: 0 auto;
+ }
+
+ h2, h4 {
+ 	/* font-family: 'Abril Fatface', serif; */
+ }
+
+ h2 {
+ 	font-size: 3rem;
+ 	text-align: center;
+ 	padding-top: 9px;
+ 	/* margin: 0 0 30px 0; */
+ }
+
+ /* NAV SECTION */
+
+ .companyName {
+ 	padding: 18px 17px 18px 15%;
+ 	margin: 0;
+ 	float: left;
+ 	color: #fff;
+ 	width: 45%;
+ 	background: rgba(0,0,0,0.7);
+ 	/* font-family: 'Josefin Sans', sans-serif; */
+   font-weight: 400;
+ 	font-size: 1.8rem;
+ 	text-align: left;
+   font-variant: small-caps;
+ }
+
+ nav {
+ 	padding: 0;
+ 	margin: 0;
+ 	width: 55%;
+ 	float: right;
+ }
+
+
+ header nav ul {
+ 	float: right;
+ 	display: inline-block;
+ 	padding: 0;
+ 	margin: 0;
+ 	width: 100%;
+ 	border-right: 20px solid rgba(0,0,0,0.7);
+ }
+
+ header nav ul li {
+ 	float: left;
+ 	margin: 0;
+ 	display: inline;
+ 	width: 33.3333333%;
+ 	text-align: center;
+ 	background: rgba(0,0,0,0.7);
+ }
+
+ header nav ul li:hover {
+ 	background: none;
+   font-style: bold;
+   transform: scale(1.2);
+ }
+
+ header nav ul li a {
+ 	text-decoration: none;
+ 	padding: 25px 20px;
+ 	color: #fff;
+ 	margin: 0;
+ 	display: inline-block;
+ 	text-transform: uppercase;
+ 	/* font-family: 'Quicksand', sans-serif; */
+ 	font-size: 1rem;
+ }
+
+ header nav ul li a:focus {
+ 	outline: none;
+ }
+
+ /* HEAD SECTION */
+
+ header {
+ 	background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbK_PEDD6aosRRPDkBPS_ISwk9kKCfEWvQDvKSHpcWr7Yxbty");
+ 	background-size: cover;
+ 	background-attachment: fixed;
+ }
+
+ .hero {
+ 	text-align: center;
+ 	text-shadow: 1px 0 2px #595859;
+ }
+
+ .hero h1 {
+ 	font-size: 5.5rem;
+ 	margin:0;
+ 	padding-top: 200px;
+ 	/* font-family: 'Abril Fatface', serif; */
+ 	color: #fff;
+ }
+
+ .hero h3 {
+ 	padding-bottom: 250px;
+ 	/* font-family: 'Quicksand', sans-serif; */
+ 	font-style: italic;
+ 	color: #fff;
+ 	font-size: 1.7rem;
+ 	font-weight: 700;
+ 	margin: 0;
+ }
+
+
+ @media (max-width:900px) {
+   .companyName {
+     width: 100%;
+     text-align: center;
+     padding: 4% 4%;
+   }
+
+  .mainNav {
+     width: 100%;
+   }
+
+   header nav ul {
+     border: none;
+   }
+
+   header nav ul li a {
+     padding: 25px 2%;
+   }
+ }
+ .search{
+   font-size: 35px;
+ }

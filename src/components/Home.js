@@ -102,7 +102,7 @@ class SearchForm extends Component {
   render() {
     return(
       <form onSubmit={ this._handleSubmit } >
-        <h2>Search</h2>
+        <h2 class="search">Search</h2>
         <input name="search" type="text" placeholder="             Postcode or Suburb" required autoFocus ref={ node => { this.suburb = node } }/>
         <select name="category" ref={ node => { this.category = node }} required>
           { this.generateOptions(this.props.categories) }
