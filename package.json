@@ -5,6 +5,7 @@
   "homepage": "http://Lucasp22.github.io/happy_find_client",
   "dependencies": {
     "axios": "^0.18.0",
+    "deploy": "^1.0.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-google-maps": "^9.4.5",
