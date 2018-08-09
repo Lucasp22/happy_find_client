@@ -15,15 +15,18 @@ class NavBar extends Component {
             {
               window.localStorage.jwtToken ? (
                 <div>
-                  <Link to = {"/"} style = {{padding: 15}}>Edit Profile</Link>
+        
                   <Link to ="/"></Link>
                   <Link to ="/" onClick={this._signOut}>Sign out</Link>
+                  <Link to={`/edit`} style = {{padding:15}}>Edit</Link>
                 </div>
               ) : (
                 <div>
                   <Link to={`/home`} style = {{padding: 15}}>Home</Link>
                   <Link to={`/signup`} style = {{padding:15}}>Sign Up</Link>
                   <Link to={`/login`} style = {{padding:15}}>Log in</Link>
+
+
                 </div>
               )
             }

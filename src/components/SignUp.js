@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import swal from 'sweetalert';
 
 const SERVER_URL = 'https://happy-find.herokuapp.com/';
 
@@ -53,11 +54,11 @@ class SignUp extends Component {
         'Content-Type': 'application/json;charset=UTF-8',
         "Access-Control-Allow-Origin": "*",
       }}).then ( (response) => {
-        alert("Success your account was created!")
+        swal("Success your account was created!")
         this.props.history.push("/login");
       }).catch(err => {
         if(err.message.includes("422")) {
-          alert("Sign up failed ! Please try again! ")
+          swal("Sign up failed ! Please try again! ")
         };
       });
   }
