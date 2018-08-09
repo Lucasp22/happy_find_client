@@ -66,21 +66,24 @@ class Booking extends Component {
       default:
         this.setState({bookingPage: 1});
     }
+
+    const { bookingPage } = this.state;
+
     return(
       <main>
         <div className="checkout-progress">
           <div className="info">
-            <div className={("stage" + this.state.bookingPage >= 1 ? ' active' : '')}>
+            <div className={"stage" + (bookingPage >= 1 ? ' active' : '')}>
               <span>Step 1 - Your Details</span>
             </div>
-            <div className={"stage" + this.state.bookingPage >= 2 ? ' active' : ''}>
+            <div className={"stage" + (bookingPage >= 2 ? ' active' : '')}>
               <span>Step 2 - Summary</span>
             </div>
           </div>
           <div className="graphic">
-            <div className={"circle" + this.state.bookingPage >= 1 ? ' active' : ''} />
-            <div className={"line" + this.state.bookingPage >= 2 ? ' active' : ''} />
-            <div className={"line" + this.state.bookingPage >= 2 ? ' active' : ''} />
+            <div className={"circle" + (bookingPage >= 1 ? ' active' : '')} />
+            <div className={"line" + (bookingPage >= 2 ? ' active' : '')} />
+            <div className={"circle" + (bookingPage >= 2 ? ' active' : '')} />
           </div>
         </div>
         {displayPage}
