@@ -6,24 +6,30 @@ const SERVER_URL = 'https://happy-find.herokuapp.com/orders/create.json';
 class BookingForm extends Component {
   constructor() {
     super();
-    this.state = {user_name: '',
-                  user_email: '',
-                  user_phone: '',
-                  user_address: '',
-                  hours: '',
-                  date: ''}
 
-      this._handleChangeName = this._handleChangeName.bind(this);
-      this._handleChangeEmail = this._handleChangeEmail.bind(this);
-      this._handleChangePhone = this._handleChangePhone.bind(this);
-      this._handleChangeAddress = this._handleChangeAddress.bind(this);
-      this._handleChangeDuration = this._handleChangeDuration.bind(this);
-      this._handleChangeDate = this._handleChangeDate.bind(this);
+    const user = JSON.parse(localStorage.user);
+    
+    this.state = {
+      user_name: user.name,
+      user_email: user.email,
+      user_phone: user.phone,
+      user_address: user.address,
+      hours: '',
+      date: ''
+    }
+
+    this._handleChangeName = this._handleChangeName.bind(this);
+    this._handleChangeEmail = this._handleChangeEmail.bind(this);
+    this._handleChangePhone = this._handleChangePhone.bind(this);
+    this._handleChangeAddress = this._handleChangeAddress.bind(this);
+    this._handleChangeDuration = this._handleChangeDuration.bind(this);
+    this._handleChangeDate = this._handleChangeDate.bind(this);
+    
     //SubmitForm
-      this._handleSubmitSaveUser = this._handleSubmitSaveUser.bind(this);
+    this._handleSubmitSaveUser = this._handleSubmitSaveUser.bind(this);
+    
     //stagepage
-      this._handleChangePageStage = this._handleChangePageStage.bind(this);
-    //statepage
+    this._handleChangePageStage = this._handleChangePageStage.bind(this);
   }
 
   _handleChangePageStage() {
