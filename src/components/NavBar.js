@@ -89,6 +89,38 @@ class NavBar extends Component {
             </nav>
           </div>
         </div>
+
+        <h2 class="companyName">Happy Find</h2>
+        <nav class="mainNav">
+          {
+            window.localStorage.jwtToken ? (
+            <ul>
+              <li>
+                <Link to = {"/edit"}>Edit Profile</Link>
+              </li>
+              <li>
+                <Link to ="/">Home</Link>
+              </li>
+              <li>
+                <Link to ="/" onClick={this._signOut}>Sign out</Link>
+              </li>
+            </ul>
+              ) : (
+            <ul>
+              <li>
+                <Link to={`/home`}>Home</Link>
+              </li>
+              <li>
+                <Link to={`/signup`}>Sign Up</Link>
+              </li>
+              <li>
+                <Link to={`/login`}>Log in</Link>
+              </li>
+            </ul>
+           )
+         }
+       </nav>
+
       </header>
     );
   }
