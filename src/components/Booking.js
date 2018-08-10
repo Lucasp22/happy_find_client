@@ -79,27 +79,11 @@ class Booking extends Component {
         break;
       default:
         this.setState({bookingPage: 1});
-    }
-
-    const { bookingPage } = this.state;
+    } 
 
     return(
       <main>
-        <div className="checkout-progress">
-          <div className="info">
-            <div className={"stage" + (bookingPage >= 1 ? ' active' : '')}>
-              <span>Step 1 - Your Details</span>
-            </div>
-            <div className={"stage" + (bookingPage >= 2 ? ' active' : '')}>
-              <span>Step 2 - Summary</span>
-            </div>
-          </div>
-          <div className="graphic">
-            <div className={"circle" + (bookingPage >= 1 ? ' active' : '')} />
-            <div className={"line" + (bookingPage >= 2 ? ' active' : '')} />
-            <div className={"circle" + (bookingPage >= 2 ? ' active' : '')} />
-          </div>
-        </div>
+        <CheckoutProgress bookingPage={ this.state.bookingPage } />
         {displayPage}
       </main>
     )
@@ -107,6 +91,23 @@ class Booking extends Component {
 }//end of class Booking
 
 ///////////////////////////////////////////////////////////////////////
-
-
+function CheckoutProgress(props) {
+  return(
+    <div className="checkout-progress">
+      <div className="info">
+        <div className={"stage" + (props.bookingPage >= 1 ? ' active' : '')}>
+          <span>Step 1 - Your Details</span>
+        </div>
+        <div className={"stage" + (props.bookingPage >= 2 ? ' active' : '')}>
+          <span>Step 2 - Summary</span>
+        </div>
+      </div>
+      <div className="graphic">
+        <div className={"circle" + (props.bookingPage >= 1 ? ' active' : '')} />
+        <div className={"line" + (props.bookingPage >= 2 ? ' active' : '')} />
+        <div className={"circle" + (props.bookingPage >= 2 ? ' active' : '')} />
+      </div>
+    </div>
+  )
+}
 export default Booking;
