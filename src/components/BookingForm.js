@@ -4,12 +4,13 @@ import axios from 'axios';
 const SERVER_URL = 'https://happy-find.herokuapp.com/orders/create.json';
 
 class BookingForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     const user = localStorage.user ? JSON.parse(localStorage.user) : {};
     
     this.state = {
+      service_id: this.props.serviceID,
       user_name: user.name,
       user_email: user.email,
       user_phone: user.phone,
@@ -62,18 +63,27 @@ class BookingForm extends Component {
   // _handleChangeDate(e) {
   //   this.setState( {service_id: e.target.value} );
   // }
-/////SubmitFormUser
-_handleSubmitSaveUser(e){
-  e.preventDefault();
-  console.log(this.state)
-  axios.post(SERVER_URL, this.state ).then( (results) => {
-    console.log(results);
-    this._handleChangePageStage();
+  /////SubmitFormUser
+  _handleSubmitSaveUser(e){
+    e.preventDefault();
+    console.log(this.state)
+    axios.post(SERVER_URL, this.state ).then( (results) => {
+      console.log(results);
+      this._handleChangePageStage();
 
-  })
-}
+    })
+  }
+
+  doPropsUpdates() {
+    if (this.props.serviceID !== this.state.service_id){
+      this.setState({
+        service_id: this.props.serviceID
+      })
+    }
+  }
 
   render() {
+    this.doPropsUpdates();
     return(
       <main>
       <div>

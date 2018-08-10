@@ -3,10 +3,10 @@ import BookingForm from './BookingForm';
 import SupplierDetails from './SupplierDetails';
 import CustomerSummary from './CustomerSummary';
 import PaySummary from './PaySummary';
-
 import Axios from 'axios';
 
 const API_URL = "https://happy-find.herokuapp.com/supplier/"
+const SERVICE_URL = "https://happy-find.herokuapp.com/suppliers/"
 
 class Booking extends Component {
   constructor(props) {
@@ -30,13 +30,22 @@ class Booking extends Component {
       // ternary -- comparison ? value if true : value if false
       supplier: hist === undefined ? {/* todo: dummy data */} : (hist.supplier || {}),
       bookingPage: 1,
-      serviceID: -1
+      serviceID: -1,
+      fetch_state: 0
     }
   }
 
-  setServiceID(id){
-    this.setState( { serviceID: id });
+  setServiceID(){
+    if (this.state.supplier.id && this.state.fetch_state === 0) {
+      Axios.get(SERVICE_URL + this.state.supplier.id + "/services").then((r) => {
+        this.setState({ services: r.data, fetch_state: 1 })
+        this.setState({ serviceID: r.data[0].id})
+      })
+    }
+
+    
   }
+
   setStateForm(s){
     this.setState({ formState: s});
   }
@@ -46,18 +55,23 @@ class Booking extends Component {
     this.setState( { bookingPage: this.state.bookingPage + 1 } )
   }
   render() {
+    this.setServiceID() // will get the suppliers service only once
+
     // switch between components bsed on booking process stage
     let displayPage;
     switch (this.state.bookingPage) {
       case 1: // user details
-        displayPage = <BookingForm  onSubmit={ this._incrementPage } callback={this.setStateForm} />
+        displayPage = <BookingForm  
+          onSubmit={ this._incrementPage } 
+          callback={ this.setStateForm } 
+          serviceID={ this.state.serviceID }
+        />
         break;
       case 2: // booking summary - displayPage is an array.
         displayPage = [
           <SupplierDetails 
-            onSubmit={this._incrementPage} 
-            supplier={this.state.supplier} 
-            callback={this.setServiceID} 
+            supplier={this.state.supplier}
+            service={this.state.services[0]}
           />,
           <CustomerSummary customer={ this.state.formState } />,
           <PaySummary />
